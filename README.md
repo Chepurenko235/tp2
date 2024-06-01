@@ -1,4 +1,5 @@
-  
+# Техническое задание №2 (ТЗ2)
+![example workflow](https://github.com/Chepurenko235/tp2/actions/workflows/ci.yml/badge.svg)
 ## Функции
  Реализована простейшая программа на Java, которая выполняет следующие функции: 
  1. Читает числа из файла. 
