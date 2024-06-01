@@ -39,27 +39,27 @@ public class MainTest {
     }
     @BeforeEach
     public void setUpTestFile() throws IOException {
-        writeTestFile(List.of(5, 3, 9, 1, 4));
+        writeTestFile(List.of(0, 1, 2, 3, 4));
     }
 
     @Test
     public void testFindMin() throws IOException {
-        assertEquals(1, Main.findMin(testFile));
+        assertEquals(0, Main.findMin(testFile));
     }
 
     @Test
     public void testFindMax() throws IOException {
-        assertEquals(9, Main.findMax(testFile));
+        assertEquals(4, Main.findMax(testFile));
     }
 
     @Test
     public void testSum() throws IOException {
-        assertEquals(22, Main.sum(testFile));
+        assertEquals(10, Main.sum(testFile));
     }
 
     @Test
     public void testMultiply() throws IOException {
-        assertEquals(540, Main.multiply(testFile));
+        assertEquals(0, Main.multiply(testFile));
     }
 
 

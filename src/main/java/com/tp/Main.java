@@ -1,20 +1,15 @@
 package com.tp;
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
     // Чтение чисел из файла
     private static List<Integer> readNumbersFromFile(File file) throws IOException {
-        List<Integer> numbers = new ArrayList<>();
-        
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                numbers.add(Integer.parseInt(line));
-            }
+            return br.lines().map(Integer::parseInt).collect(Collectors.toList());
         }
-        return numbers;
     }
 
     // Поиск минимального числа
