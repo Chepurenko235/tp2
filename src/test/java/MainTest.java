@@ -17,10 +17,11 @@ import java.util.stream.IntStream;
 
 
 public class MainTest {
-
-    private static final String TEST_FILE_NAME = "./123.txt";
+    
+    private static final String TEST_FILE_NAME = "./file.txt";
     private File testFile;
 
+    // Перед каждым тестом, создаем пустой файл
     @BeforeEach
     public void setUp() throws IOException {
         testFile = new File(TEST_FILE_NAME);
@@ -29,7 +30,7 @@ public class MainTest {
         }
         testFile.createNewFile();
     }
-
+    // функция для записи чисел в файл
     private void writeTestFile(List<Integer> numbers) throws IOException {
         try (FileWriter writer = new FileWriter(testFile)) {
             for (Integer number : numbers) {
@@ -37,11 +38,12 @@ public class MainTest {
             }
         }
     }
+    // Перед каждым тестом записываем в него тестовую выборку
     @BeforeEach
     public void setUpTestFile() throws IOException {
         writeTestFile(List.of(0, 1, 2, 3, 4));
     }
-
+    // тестируем функции
     @Test
     public void testFindMin() throws IOException {
         assertEquals(0, Main.findMin(testFile));
@@ -62,7 +64,7 @@ public class MainTest {
         assertEquals(0, Main.multiply(testFile));
     }
 
-
+    // тестирование ошибки неправильного пути до файла
     @Test
     public void testFindMinWithBadPath() {
         Exception exception = assertThrows(IOException.class, () -> {
@@ -102,7 +104,7 @@ public class MainTest {
 
         assertEquals("bad_path (No such file or directory)", exception.getMessage());
     }
-
+    // падающий тест
     @Disabled
     @Test
     public void testSumTimeoutFail() throws IOException {

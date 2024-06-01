@@ -7,17 +7,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.tp.Main;
 
 public class MainBenckmarkTest {
-
+    // кол-во чисел в файлах
     static int[] sizes = {1,100, 1000, 10000, 100000, 1000000, 5000000, 10000000};
 
-
+    // генерация тестовых файлов
     @BeforeEach
     public void setUp() throws IOException {
 
@@ -39,7 +39,7 @@ public class MainBenckmarkTest {
         }
         
     }
-
+    // Проводим измерения для каждой функции
 
     @Test
     public void benchmarkFindMin() throws IOException {
